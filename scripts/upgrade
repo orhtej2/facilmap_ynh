@@ -44,7 +44,7 @@ ynh_script_progression --message="Install $app..." --weight=10
 pushd "$install_dir"
     ynh_use_nodejs
     ynh_exec_warn_less env $ynh_node_load_PATH yarn install
-    ynh_exec_warn_less env $ynh_node_load_PATH yarn build   
+    ynh_exec_warn_less env $ynh_node_load_PATH NODE_OPTIONS="--max-old-space-size=3000" yarn build   
 popd
 
 chmod 750 "$install_dir"
